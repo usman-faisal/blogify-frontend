@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:3001/api/blogs";
+const baseUrl = `${process.env.BASE_URL}/api/blogs`;
 let token = "";
 const setToken = (newToken) => {
   token = `bearer ${newToken}`;
