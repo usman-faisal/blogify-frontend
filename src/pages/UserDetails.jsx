@@ -9,7 +9,7 @@ const UserDetails = ({ user }) => {
   return (
     <>
       <Navbar />
-      <Container maw="95rem">
+      <Container pb={30} maw="95rem">
         <h2>Blogs added by {user.username}</h2>
         <BlogList blogs={user.blogs} />
       </Container>

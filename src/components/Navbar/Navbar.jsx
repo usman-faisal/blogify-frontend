@@ -38,9 +38,6 @@ export default function Navbar() {
         </Link>
         <Group spacing={5}>
           <ThemeSwitch />
-          <Link to="/">
-            <Button variant="default">Blogs</Button>
-          </Link>
           <Link to="/users">
             <Button variant="default">Users</Button>
           </Link>

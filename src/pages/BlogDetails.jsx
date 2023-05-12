@@ -51,7 +51,7 @@ const BlogDetails = ({ blog }) => {
   return (
     <>
       <Navbar />
-      <Container maw="95rem">
+      <Container pb={30} maw="95rem">
         <Flex direction="column" gap={20}>
           <Title size="h1" maw="40rem">
             {blog.title}

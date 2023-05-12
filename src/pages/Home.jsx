@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Container maw="95rem">
+      <Container pb={30} maw="95rem">
         {user && (
           <>
             {!opened && (

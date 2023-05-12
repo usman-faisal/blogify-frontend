@@ -7,7 +7,7 @@ const Users = () => {
   return (
     <>
       <Navbar />
-      <Container maw="95rem">
+      <Container pb={30} maw="95rem">
         <UserList />
       </Container>
     </>
