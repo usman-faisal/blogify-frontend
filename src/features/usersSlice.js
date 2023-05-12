@@ -20,4 +20,18 @@ export const initializeUsers = () => {
   };
 };
 
+export const searchByUsername = (username) => {
+  return (dispatch, getState) => {
+    const users = getState().users;
+    if (!users) {
+      return null;
+    }
+    const user = users.find((user) => user.username === username);
+    if (user) {
+      return user;
+    }
+    return null;
+  };
+};
+
 export default usersSlice.reducer;

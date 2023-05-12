@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../features/userSlice";
 import { Avatar, Badge, Button, createStyles, Flex, Menu } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { searchByUsername } from "../../features/usersSlice";
 
 const useStyles = createStyles((theme) => ({
   menu: {
@@ -17,6 +18,7 @@ const NavMenu = () => {
   const logout = () => {
     dispatch(removeUser());
   };
+  const userId = dispatch(searchByUsername(user.username));
   return (
     <Flex ml="auto" align="center">
       <Menu shadow="md" width="auto">
@@ -28,7 +30,7 @@ const NavMenu = () => {
             <Badge>{user.username} logged in</Badge>
           </Menu.Label>
           <Menu.Label>
-            <Link to="/">Your Blogs</Link>
+            <Link to={`/users/${userId?.id}/likedBlogs`}>Liked Blogs</Link>
           </Menu.Label>
           <Menu.Label style={{ cursor: "pointer" }} onClick={logout}>
             Logout

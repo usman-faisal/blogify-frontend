@@ -47,7 +47,6 @@ const BlogDetails = ({ blog }) => {
     }
   };
 
-  console.log(blog, "hi");
   return (
     <>
       <Navbar />

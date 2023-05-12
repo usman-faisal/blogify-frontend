@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { initializeBlogs } from "./features/blogsSlice";
 import { initializeUser } from "./features/userSlice";
 import { Route, Routes, useMatch } from "react-router-dom";
-import UserDetails from "./pages/UserDetails";
+import UserBlogs from "./pages/UserBlogs";
 import BlogDetails from "./pages/BlogDetails";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -24,7 +24,11 @@ const App = () => {
   const blogDetailsToShow =
     blogMatch &&
     blogs.find((blog) => blog.id.toString() === blogMatch.toString());
-
+  const userLikedBlogsMatch = useMatch("/users/:id/likedBlogs")?.params?.id;
+  const userLikedBlogsToShow =
+    userLikedBlogsMatch &&
+    users.find((user) => user.id.toString() === userLikedBlogsMatch.toString());
+  console.log({ userLikedBlogsToShow });
   useEffect(() => {
     dispatch(initializeUser());
     dispatch(initializeUsers());
@@ -42,8 +46,22 @@ const App = () => {
         <Route element={<Users />} path="/users" />
         <Route element={<Login />} path="/login" />
         <Route
-          element={<UserDetails user={userDetailsToShow} />}
+          element={
+            <UserBlogs
+              blogs={userDetailsToShow?.blogs}
+              title={`Blogs added by ${userDetailsToShow?.username}`}
+            />
+          }
           path="/users/:id"
+        />
+        <Route
+          element={
+            <UserBlogs
+              blogs={userLikedBlogsToShow?.likedBlogs}
+              title={`Blogs liked by ${userLikedBlogsToShow?.username}`}
+            />
+          }
+          path="/users/:id/likedBlogs"
         />
         <Route
           element={<BlogDetails blog={blogDetailsToShow} />}

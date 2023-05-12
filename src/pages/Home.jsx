@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
-import Toggleable from "../components/utils/Toggleable";
 import BlogForm from "../components/Blog/BlogForm";
 import BlogList from "../components/Blog/BlogList";
 import Navbar from "../components/Navbar/Navbar";
