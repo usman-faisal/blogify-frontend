@@ -1,17 +1,8 @@
-import {
-  createStyles,
-  Header,
-  Container,
-  Group,
-  Chip,
-  Button,
-  ColorSchemeProvider,
-} from "@mantine/core";
+import { createStyles, Header, Container, Group, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NavMenu from "./NavMenu";
 import ThemeSwitch from "./ThemeSwitch";
-import { useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   header: {

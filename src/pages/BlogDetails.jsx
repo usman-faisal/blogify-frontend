@@ -1,7 +1,6 @@
 import { likeBlog, removeBlog } from "../features/blogsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setNotification } from "../features/notificationSlice";
-import { useState } from "react";
 import CommentList from "../components/Comment/CommentList";
 import {
   Avatar,
@@ -15,7 +14,9 @@ import {
 } from "@mantine/core";
 import Navbar from "../components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
+import { useDisclosure } from "@mantine/hooks";
 const BlogDetails = ({ blog }) => {
+  const [opened, { open, close }] = useDisclosure(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -70,6 +71,10 @@ const BlogDetails = ({ blog }) => {
               👍
             </span>
             <span>{blog.likes}</span>
+            <span style={{ cursor: "pointer" }} onClick={() => open()}>
+              💬
+            </span>
+            <span>{blog.comments.length}</span>
             {user && user.username === blog.user?.username && (
               <Button size="xs" color="red" onClick={handleRemoveClick}>
                 remove
@@ -83,7 +88,7 @@ const BlogDetails = ({ blog }) => {
         </div>
 
         {/*<Divider mt={20} mb={20} />*/}
-        <CommentList blog={blog} />
+        <CommentList open={open} opened={opened} close={close} blog={blog} />
       </Container>
     </>
   );
