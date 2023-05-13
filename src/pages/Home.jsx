@@ -27,7 +27,7 @@ const Home = () => {
             </Collapse>
           </>
         )}
-        <BlogList blogs={blogs} loading={!user} />
+        <BlogList blogs={blogs} loading={blogs.length === 0} />
       </Container>
     </>
   );

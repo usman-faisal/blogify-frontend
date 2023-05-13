@@ -10,7 +10,7 @@ const BlogList = ({ blogs, loading }) => {
           .fill(0)
           .map((_, i) => (
             <Grid.Col key={i} xs={6} md={4}>
-              <Skeleton w={394} height={100} />
+              <Skeleton height={100} />
             </Grid.Col>
           ))}
         ;
