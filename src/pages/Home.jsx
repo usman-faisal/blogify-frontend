@@ -5,6 +5,7 @@ import BlogList from "../components/Blog/BlogList";
 import Navbar from "../components/Navbar/Navbar";
 import { Button, Collapse, Container } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { bool } from "prop-types";
 
 const Home = () => {
   const user = useSelector((state) => state.user);
@@ -26,7 +27,7 @@ const Home = () => {
             </Collapse>
           </>
         )}
-        <BlogList blogs={blogs} />
+        <BlogList blogs={blogs} loading={!user} />
       </Container>
     </>
   );

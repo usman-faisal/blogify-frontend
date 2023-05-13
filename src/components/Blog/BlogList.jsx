@@ -1,8 +1,22 @@
 import React from "react";
-import { Grid } from "@mantine/core";
+import { Grid, Skeleton } from "@mantine/core";
 import BlogListItem from "./BlogListItem";
 
-const BlogList = ({ blogs }) => {
+const BlogList = ({ blogs, loading }) => {
+  if (loading) {
+    return (
+      <Grid>
+        {Array(10)
+          .fill(0)
+          .map((_, i) => (
+            <Grid.Col key={i} xs={6} md={4}>
+              <Skeleton w={394} height={100} />
+            </Grid.Col>
+          ))}
+        ;
+      </Grid>
+    );
+  }
   return (
     <Grid mt={10}>
       {blogs.map((blog) => (

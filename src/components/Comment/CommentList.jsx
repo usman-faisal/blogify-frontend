@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Drawer, Flex } from "@mantine/core";
 import Comment from "./Comment";
-import { useDisclosure } from "@mantine/hooks";
 import CommentForm from "./CommentForm";
 
 const CommentList = ({ blog, opened, close, open }) => {
